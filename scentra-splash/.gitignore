@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# dev files
+/src/app/delete
+/src/app/getEmails
+/src/app/seed
