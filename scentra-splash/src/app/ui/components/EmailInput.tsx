@@ -15,7 +15,7 @@ export function EmailInput({ value, onChange }: EmailInputProps) {
           type="email"
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          placeholder="Enter your email"
+          placeholder="Email"
           required
           aria-label="Email address"
           className="absolute inset-0 w-full h-full p-2 box-border text-black text-lg md:text-3xl placeholder:text-gray-500 outline-none transition-all duration-200 focus:ring-1 focus:ring-black focus:ring-inset focus:ring-opacity-50 hover:bg-gray-50"
