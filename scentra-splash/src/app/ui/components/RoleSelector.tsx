@@ -11,12 +11,12 @@ export function RoleSelector({
   onRoleSelect,
 }: RoleSelectorProps) {
   return (
-    <div className="flex z-10 flex-wrap text-center whitespace-nowrap">
-      <div className="flex flex-col flex-1 grow shrink-0 justify-center p-2.5 basis-0">
+    <div className="flex flex-wrap text-center whitespace-nowrap">
+      <div className="flex flex-col flex-1 justify-center p-2.5">
         <button
           type="button"
           onClick={() => onRoleSelect("buyer")}
-          className={`flex flex-col justify-center items-center h-22 px-16 w-full border border-black border-solid max-md:px-5 text-3xl transition-all duration-300 ease-in-out transform hover:scale-[1.02] active:scale-[0.98] ${
+          className={`flex flex-col justify-center items-center text-lg md:text-3xl h-14 md:h-22 px-8 md:px-16 w-full border border-black transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95 ${
             selectedRole === "buyer"
               ? "bg-black text-white"
               : "bg-white text-black hover:bg-gray-50"
@@ -26,11 +26,11 @@ export function RoleSelector({
           BUYER
         </button>
       </div>
-      <div className="flex flex-col flex-1 grow shrink-0 justify-center p-2.5 basis-0">
+      <div className="flex flex-col flex-1 justify-center p-2.5">
         <button
           type="button"
           onClick={() => onRoleSelect("seller")}
-          className={`flex flex-col justify-center items-center h-22 px-16 w-full border border-black border-solid max-md:px-5 text-3xl transition-all duration-300 ease-in-out transform hover:scale-[1.02] active:scale-[0.98] ${
+          className={`flex flex-col justify-center items-center text-lg md:text-3xl h-14 md:h-22 px-8 md:px-16 w-full border border-black transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95 ${
             selectedRole === "seller"
               ? "bg-black text-white"
               : "bg-white text-black hover:bg-gray-50"

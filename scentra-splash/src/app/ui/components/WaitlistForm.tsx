@@ -30,13 +30,13 @@ export function WaitlistForm() {
   }, [formState.message]);
 
   return (
-    <section className="flex flex-col justify-center self-stretch p-2.5 mt-10 text-2xl leading-none max-md:max-w-full">
+    <section className="flex flex-col justify-center self-stretch p-4 md:p-10 mt-10 text-2xl leading-none max-w-full">
       <form
         action={formAction}
-        className="px-20 py-14 w-full border border-black border-solid max-w-[1050px] max-md:px-5"
+        className="px-4 md:px-20 py-8 md:py-14 w-full border border-black max-w-[1050px] mx-auto"
       >
         {/* Email Input */}
-        <div className="mb-2 mt-4">
+        <div className="mb-4 mt-4">
           <EmailInput value={email} onChange={setEmail} />
           {/* Hidden input so that the server action receives the email value */}
           <input type="hidden" name="email" value={email} />
@@ -50,7 +50,7 @@ export function WaitlistForm() {
         </div>
 
         {/* Role Selector */}
-        <div className="mb-2">
+        <div className="mb-4">
           <RoleSelector selectedRole={role} onRoleSelect={setRole} />
           {/* Hidden input to send the role value */}
           <input type="hidden" name="role" value={role} />
@@ -65,7 +65,7 @@ export function WaitlistForm() {
 
         {/* For sellers, ask how many products they plan to list */}
         {role === "seller" && (
-          <div className="mb-2 mt-4">
+          <div className="mb-4 mt-4">
             <NumProductsInput value={numProducts} onChange={setNumProducts} />
             {/* Hidden input so that the server action receives the number of products */}
             <input type="hidden" name="numProducts" value={numProducts} />

@@ -7,13 +7,13 @@ interface WaitlistButtonProps {
 
 export function WaitlistButton({ onClick, type = "button" }: WaitlistButtonProps) {
   return (
-    <div className="flex flex-col justify-center p-2.5 text-center text-3xl text-white max-md:max-w-full">
+    <div className="flex flex-col justify-center p-2.5 text-center text-white w-full">
       <button
         type={type}
         onClick={onClick}
-        className="flex flex-col items-center h-22 px-16 w-full bg-black border border-black border-solid max-md:px-5 max-md:max-w-full transition-all duration-300 ease-in-out transform hover:scale-[1.02] active:scale-[0.98]"
+        className="flex flex-col items-center h-14 md:h-22 px-8 md:px-16 w-full bg-black border border-black transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95"
       >
-        <span className="flex-1 flex items-center justify-center">
+        <span className="flex-1 flex items-center justify-center text-lg md:text-3xl">
           JOIN WAITLIST
         </span>
       </button>

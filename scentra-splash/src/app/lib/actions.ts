@@ -22,6 +22,11 @@ const RegisterSchema = z.object({
   ),
 });
 
+// Create a custom error interface to type our database errors.
+interface DatabaseError extends Error {
+  code?: string;
+}
+
 export async function registerEmail(
   prevState: State,
   formData: FormData
@@ -70,8 +75,19 @@ export async function registerEmail(
       errors: {},
       message: { success: true, text: "Registration successful" },
     };
-  } catch (error) {
-    console.error("Database Error:", error);
+  } catch (error: unknown) {
+    const dbError = error as DatabaseError;
+    console.error("Database Error:", dbError);
+    // Check if the error is a duplicate key error (PostgreSQL code 23505)
+    if (dbError.code === "23505") {
+      return {
+        ...prevState,
+        message: {
+          success: false,
+          text: "This email is already registered.",
+        },
+      };
+    }
     return {
       ...prevState,
       message: {
