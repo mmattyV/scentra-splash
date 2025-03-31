@@ -18,7 +18,7 @@ export function Hero() {
       <div className="fixed top-5 right-12">
         <button
           onClick={scrollToForm}
-          className="gap-2.5 hidden sm:block self-stretch px-6 py-2 mt-6 w-full text-xl leading-none text-center text-white hover:scale-105 transition-transform bg-black min-h-[50px] rounded-2xl shadow-[0px_7px_4px_rgba(255,255,255,0.25)] max-md:mt-10"
+          className="gap-2.5 hidden sm:block self-stretch px-6 py-2 mt-6 w-full text-xl leading-none text-center text-white hover:scale-105 transition-transform bg-black min-h-[50px] rounded-2xl shadow-[0px_0px_15px_rgba(255,255,255,0.5)] max-md:mt-10"
         >
           GET UPDATES
         </button>
