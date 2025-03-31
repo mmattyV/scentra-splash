@@ -12,6 +12,7 @@ export function FeatureSection() {
           alt="Bottles image"
           width={1172}
           height={1440}
+          unoptimized
           style={{ width: "100%", height: "auto" }}
         />
       </div>
