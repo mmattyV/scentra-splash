@@ -1,14 +1,16 @@
 import * as React from "react";
 import { Hero } from "@/app/ui/components/Hero";
 import { WaitlistForm } from "@/app/ui/components/WaitlistForm";
+import { FeatureSection } from "@/app/ui/components/FeatureSection";
+import { CommunitySection } from "@/app/ui/components/CommunitySection";
 
-export default function WaitlistPage() {
+export default function Page() {
   return (
-    <main className="flex overflow-hidden flex-col justify-center items-center px-20 py-11 font-bold text-black bg-white max-md:px-5">
-      <div className="flex flex-col items-center max-w-full w-[1050px]">
-        <Hero />
-        <WaitlistForm />
-      </div>
+    <main className="flex overflow-hidden flex-col py-8 bg-white">
+      <Hero />
+      <FeatureSection />
+      <CommunitySection />
+      <WaitlistForm />
     </main>
   );
 }

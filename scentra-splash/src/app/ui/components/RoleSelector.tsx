@@ -16,10 +16,10 @@ export function RoleSelector({
         <button
           type="button"
           onClick={() => onRoleSelect("buyer")}
-          className={`flex flex-col justify-center items-center text-lg md:text-3xl h-14 md:h-22 px-8 md:px-16 w-full border border-black transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95 ${
+          className={`flex flex-col justify-center items-center text-lg h-14 px-8 w-full border border-black transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95 rounded-2xl ${
             selectedRole === "buyer"
               ? "bg-black text-white"
-              : "bg-white text-black hover:bg-gray-50"
+              : "bg-white text-black"
           }`}
           aria-pressed={selectedRole === "buyer"}
         >
@@ -30,10 +30,10 @@ export function RoleSelector({
         <button
           type="button"
           onClick={() => onRoleSelect("seller")}
-          className={`flex flex-col justify-center items-center text-lg md:text-3xl h-14 md:h-22 px-8 md:px-16 w-full border border-black transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95 ${
+          className={`flex flex-col justify-center items-center text-lg h-14 px-8 w-full border border-black transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95 rounded-2xl ${
             selectedRole === "seller"
               ? "bg-black text-white"
-              : "bg-white text-black hover:bg-gray-50"
+              : "bg-white text-black"
           }`}
           aria-pressed={selectedRole === "seller"}
         >

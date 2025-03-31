@@ -1,6 +1,11 @@
-import { K2D } from "next/font/google";
+import { Open_Sans, IBM_Plex_Serif } from "next/font/google";
 
-export const k2d = K2D({
+export const openSans = Open_Sans({
+  subsets: ["latin"],
+  weight: "300",
+});
+
+export const ibmPlexSerifExtraLight = IBM_Plex_Serif({
     subsets: ["latin"],
     weight: "400",
-});
+  });

@@ -7,6 +7,7 @@ import { EmailInput } from "./EmailInput";
 import { RoleSelector } from "./RoleSelector";
 import { WaitlistButton } from "./WaitlistButton";
 import { NumProductsInput } from "./NumProductsInput";
+import { ibmPlexSerifExtraLight } from "@/app/ui/fonts"; // Adjust import based on your project setup
 
 export function WaitlistForm() {
   const [email, setEmail] = useState("");
@@ -30,10 +31,17 @@ export function WaitlistForm() {
   }, [formState.message]);
 
   return (
-    <section className="flex flex-col justify-center self-stretch p-4 md:p-10 mt-10 text-2xl leading-none max-w-full">
+    <section className="flex flex-col justify-center items-center self-stretch p-4 md:p-10 mt-16 text-2xl leading-none min-w-[90vw] mx-auto">
+      {/* Added heading above the form */}
+      <h1
+        className={`${ibmPlexSerifExtraLight.className} self-stretch p-2.5 text-4xl leading-[2.5rem] text-center text-black`}
+      >
+        Don&apos;t Miss a Whiff.
+      </h1>
       <form
+        id="waitlist-form"
         action={formAction}
-        className="px-4 md:px-20 py-8 md:py-14 w-full border border-black max-w-[1050px] mx-auto"
+        className="px-4 md:px-20 py-8 md:py-14 w-full max-w-[1050px] mx-auto"
       >
         {/* Email Input */}
         <div className="mb-4 mt-4">
