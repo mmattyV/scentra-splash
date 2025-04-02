@@ -6,12 +6,12 @@ export function FeatureSection() {
   return (
     <section className="relative mt-16 w-full max-md:mt-10">
       {/* Bottles image section – lifted upward to be partially under Hero */}
-      <div className="w-full overflow-hidden -mt-10 sm:-mt-40 lg:-mt-80 relative z-0">
+      <div className="w-full -mt-10 sm:-mt-40 lg:-mt-80 relative z-0">
         <Image
           src="/bottles.svg"
           alt="Bottles image"
-          width={1172}
-          height={1440}
+          width={4000}
+          height={2000}
           unoptimized
           className="w-full h-auto object-contain"
         />
