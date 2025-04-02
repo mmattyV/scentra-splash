@@ -10,9 +10,8 @@ export function FeatureSection() {
         <Image
           src="/bottles.svg"
           alt="Bottles image"
-          width={4000}
-          height={2000}
-          unoptimized
+          width={1172}
+          height={1440}
           className="w-full h-auto object-contain"
         />
       </div>

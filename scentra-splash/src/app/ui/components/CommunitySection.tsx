@@ -11,7 +11,6 @@ export function CommunitySection() {
             alt="Social media icons"
             width={1400}
             height={700}
-            unoptimized
             className="object-contain"
           />
         </div>
