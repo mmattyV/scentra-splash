@@ -10,6 +10,7 @@ export type State = {
 };
 
 // Define validation schema with Zod ensuring a whole number for numProducts
+// and validating optional Reddit and Facebook profile URLs.
 const RegisterSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   role: z.enum(["buyer", "seller"]),
@@ -19,6 +20,14 @@ const RegisterSchema = z.object({
       .number()
       .int("Please enter a whole number")
       .nonnegative("Please enter a number greater than or equal to 0")
+  ),
+  redditLink: z.preprocess(
+    (val) => (val === "" ? undefined : val),
+    z.string().url("Please enter a valid Reddit profile URL").optional()
+  ),
+  fbLink: z.preprocess(
+    (val) => (val === "" ? undefined : val),
+    z.string().url("Please enter a valid Facebook profile URL").optional()
   ),
 });
 
@@ -36,6 +45,8 @@ export async function registerEmail(
     email: formData.get("email")?.toString() || "",
     role: formData.get("role")?.toString() as "buyer" | "seller",
     numProducts: formData.get("numProducts")?.toString() || "0",
+    redditLink: formData.get("redditLink")?.toString() || "",
+    fbLink: formData.get("fbLink")?.toString() || "",
   };
 
   // If user is a buyer, set numProducts to "0"
@@ -57,13 +68,13 @@ export async function registerEmail(
   }
 
   // Extract validated data
-  const { email, role, numProducts } = parsed.data;
+  const { email, role, numProducts, redditLink, fbLink } = parsed.data;
 
   try {
     // Insert into PostgreSQL database
     await sql`
-      INSERT INTO waitlist (email, role, num_products) 
-      VALUES (${email}, ${role}, ${numProducts})
+      INSERT INTO waitlist (email, role, num_products, reddit_profile, facebook_profile)
+      VALUES (${email}, ${role}, ${numProducts}, ${redditLink}, ${fbLink})
     `;
 
     // Optionally revalidate cache if needed

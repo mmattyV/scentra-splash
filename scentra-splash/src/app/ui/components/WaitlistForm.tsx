@@ -7,12 +7,16 @@ import { EmailInput } from "./EmailInput";
 import { RoleSelector } from "./RoleSelector";
 import { WaitlistButton } from "./WaitlistButton";
 import { NumProductsInput } from "./NumProductsInput";
+import { FbInput } from "./FbInput";
+import { RedditInput } from "./RedditInput";
 import { ibmPlexSerifExtraLight } from "@/app/ui/fonts"; // Adjust import based on your project setup
 
 export function WaitlistForm() {
   const [email, setEmail] = useState("");
   const [numProducts, setNumProducts] = useState("");
   const [role, setRole] = useState<"buyer" | "seller">("buyer");
+  const [fbLink, setFbLink] = useState("");
+  const [redditLink, setRedditLink] = useState("");
 
   const initialState: State = { message: null, errors: {} };
   const [formState, formAction] = useActionState(registerEmail, initialState);
@@ -27,6 +31,8 @@ export function WaitlistForm() {
       setEmail("");
       setNumProducts("");
       setRole("buyer");
+      setFbLink("");
+      setRedditLink("");
     }
   }, [formState.message]);
 
@@ -82,6 +88,36 @@ export function WaitlistForm() {
                 {Array.isArray(formState.errors.numProducts)
                   ? formState.errors.numProducts.join(", ")
                   : formState.errors.numProducts}
+              </p>
+            )}
+          </div>
+        )}
+
+        {role === "seller" && (
+          <div className="mb-4 mt-4">
+            <RedditInput value={redditLink} onChange={setRedditLink} />
+            {/* Hidden input so that the server action receives the Reddit link */}
+            <input type="hidden" name="redditLink" value={redditLink} />
+            {formState.errors?.redditLink && (
+              <p className="text-red-500 text-sm">
+                {Array.isArray(formState.errors.redditLink)
+                  ? formState.errors.redditLink.join(", ")
+                  : formState.errors.redditLink}
+              </p>
+            )}
+          </div>
+        )}
+
+        {role === "seller" && (
+          <div className="mb-4 mt-4">
+            <FbInput value={fbLink} onChange={setFbLink} />
+            {/* Hidden input so that the server action receives the Facebook link */}
+            <input type="hidden" name="fbLink" value={fbLink} />
+            {formState.errors?.fbLink && (
+              <p className="text-red-500 text-sm">
+                {Array.isArray(formState.errors.fbLink)
+                  ? formState.errors.fbLink.join(", ")
+                  : formState.errors.fbLink}
               </p>
             )}
           </div>
