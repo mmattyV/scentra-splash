@@ -13,7 +13,7 @@ export function FeatureSection() {
           width={1172}
           height={1440}
           unoptimized
-          style={{ width: "100%", height: "auto" }}
+          className="w-full h-auto object-contain"
         />
       </div>
 
