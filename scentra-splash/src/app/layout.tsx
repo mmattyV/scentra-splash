@@ -38,7 +38,7 @@ export default function RootLayout({
 
             {/* Email Icon Button */}
             <a
-              href="mailto:vuminhmatthew@gmail.com" // Replace with your email address
+              href="mailto:contact@scentra.app" // Replace with your email address
               aria-label="Send an email"
               className="mb-4"
             >
